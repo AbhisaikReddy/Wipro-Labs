@@ -1,9 +1,9 @@
 package pack;
 
 import org.testng.annotations.Test;
- 
+
 import io.github.bonigarcia.wdm.WebDriverManager;
- 
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
@@ -11,13 +11,14 @@ import org.testng.annotations.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.AfterSuite;
- 
-public class TC0012_TestNG {
+
+public class Lab11_factory {
 	WebDriver driver;
   @Test(dataProvider = "dp")
   public void f(String username, String password) throws InterruptedException {
@@ -26,13 +27,13 @@ public class TC0012_TestNG {
 		Thread.sleep(3000);
 		//WebElement username=driver.findElement(By.name("username"));
 		//username.sendKeys("Admin");
-		login_obj l=new login_obj(driver);
-		l.enterusername(username);
-		l.enterpassword(password);
-		l.clickonlogin();
-//		driver.findElement(By.name("username")).sendKeys(username);
-//		driver.findElement(By.name("password")).sendKeys(password);
-//		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		factory_obj obj=PageFactory.initElements(driver, factory_obj.class);
+		obj.enterusername(username);
+		obj.enterpassword(password);
+		obj.clickonlogin();
+	//	driver.findElement(By.name("username")).sendKeys(username);
+		//driver.findElement(By.name("password")).sendKeys(password);
+	//	driver.findElement(By.xpath("//button[@type='submit']")).click();
 	  }
   @BeforeMethod
   public void beforeMethod() {
@@ -46,13 +47,13 @@ public class TC0012_TestNG {
 	  System.out.println("After method");
 	  driver.quit();
   }
- 
- 
+
+
   @DataProvider
   public Object[][] dp() {
     return new Object[][] {
       new Object[] { "Admin", "admin123" },
-      new Object[] { "Abhi", "admin123" },
+      new Object[] { "pooja", "admin123" },
     
     };
   }
@@ -60,32 +61,31 @@ public class TC0012_TestNG {
   public void beforeClass() {
 	  System.out.println("Before class");
   }
- 
+
   @AfterClass
   public void afterClass() {
 	  System.out.println("After Class");
   }
- 
+
   @BeforeTest
   public void beforeTest() {
 	  System.out.println("Before Test");
   }
- 
+
   @AfterTest
   public void afterTest() {
 	  System.out.println("After Test");
   }
- 
+
   @BeforeSuite
   public void beforeSuite() {
 	  System.out.println("Before Suite");
   }
- 
+
   @AfterSuite
   public void afterSuite() {
-	  System.out.println("After Suite");
-  }
- 
+	  System.out.println("After Suite");
+  }
+
+
 }
- 
- 

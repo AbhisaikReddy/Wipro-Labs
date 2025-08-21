@@ -1,10 +1,10 @@
 package pack;
 
-class Person {
+class P {
 	private String name;
 	private int age;
 
-	public Person(String name, int age) {
+	public P(String name, int age) {
 		this.name = name;
 		this.age = age;
 	}
@@ -23,12 +23,12 @@ class Person {
 	}
 }
 
-abstract class Account {
+abstract class A {
 	private long accNum;
 	private double balance = 500;
-	private Person accHolder;
+	private P accHolder;
 
-	public Account(long accNum, double balance, Person person) {
+	public A(long accNum, double balance, P person) {
 		this.accNum = accNum;
 		this.balance = balance;
 		this.accHolder = person;
@@ -41,10 +41,10 @@ abstract class Account {
 		this.accNum = accNum;
 	}
 
-	public Person getAccHolder() {
+	public P getAccHolder() {
 		return accHolder;
 	}
-	public void setAccHolder(Person accHolder) {
+	public void setAccHolder(P accHolder) {
 		this.accHolder = accHolder;
 	}
 
@@ -76,8 +76,8 @@ abstract class Account {
 }
 
 
-class SavingsAccount extends Account {
-	public SavingsAccount(long accNum, double balance, Person person) {
+class SavingsAccount extends A {
+	public SavingsAccount(long accNum, double balance, P person) {
 		super(accNum, balance, person);
 	}
 
@@ -95,11 +95,11 @@ public class prg2_5 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Person p1 = new Person("Smith", 23);
-		Person p2 = new Person("Kathy", 22);
+		P p1 = new P("Smith", 23);
+		P p2 = new P("Kathy", 22);
 
-		Account a1 = new SavingsAccount(1001, 2000, p1);
-		Account a2 = new SavingsAccount(1002, 3000, p2);
+		A a1 = new SavingsAccount(1001, 2000, p1);
+		A a2 = new SavingsAccount(1002, 3000, p2);
 
 		a1.setBalance(2000);
 		a2.withdraw(2000);

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+<suite name="Failed suite [Suite2]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="pack.Lab8_1">
+      <class name="pack.TC0012_TestNG">
         <methods>
-          <include name="afterMethod"/>
           <include name="beforeTest"/>
-          <include name="afterSuite"/>
           <include name="afterTest"/>
-          <include name="beforeSuite"/>
           <include name="afterClass"/>
-          <include name="f"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+          <include name="afterMethod"/>
+          <include name="f" invocation-numbers="0 1"/>
           <include name="beforeMethod"/>
           <include name="beforeClass"/>
         </methods>
-      </class> <!-- pack.Lab8_1 -->
+      </class> <!-- pack.TC0012_TestNG -->
     </classes>
   </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+</suite> <!-- Failed suite [Suite2] -->
